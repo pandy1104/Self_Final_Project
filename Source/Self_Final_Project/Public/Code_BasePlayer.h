@@ -13,5 +13,14 @@ UCLASS()
 class SELF_FINAL_PROJECT_API ACode_BasePlayer : public ACode_BaseCharacter
 {
 	GENERATED_BODY()
-	
+
+	ACode_BasePlayer();
+
+protected:
+	virtual void BeginPlay() override;
+
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	class USpringArmComponent* SpringArm;
+	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
+	class UCameraComponent* Camera;
 };

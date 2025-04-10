@@ -2,13 +2,16 @@
 
 
 #include "Code_BaseCharacter.h"
+#include "Components/SkeletalMeshComponent.h"
 
 // Sets default values
 ACode_BaseCharacter::ACode_BaseCharacter()
 {
  	// Set this character to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = false;
-
+	PrimaryActorTick.bStartWithTickEnabled = false;
+	PrimaryActorTick.bCanEverTick = true;
+	GetMesh()->SetRelativeRotation(FRotator(0., 270., 0.));
+	GetMesh()->SetRelativeLocation(FVector(0., 0., -90.));
 }
 
 // Called when the game starts or when spawned
