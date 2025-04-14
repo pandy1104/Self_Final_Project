@@ -19,14 +19,19 @@ class SELF_FINAL_PROJECT_API ACode_BasePlayer : public ACode_BaseCharacter
 protected:
 	virtual void BeginPlay() override;
 
+	class ACode_InteractableObject* CurrentInteractable = nullptr;
+
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
 	class USpringArmComponent* SpringArm;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
 	class UCameraComponent* Camera;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-
 private:
 	void InputAxisMoveForward(float AxisValue);
 	void InputAxisStrafe(float AxisValue);
+	void TryInteract();
+
+public:
+	void SetInteractingObject(ACode_InteractableObject* InteractObject);
 };

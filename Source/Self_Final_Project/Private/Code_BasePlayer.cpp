@@ -4,6 +4,7 @@
 #include "Code_BasePlayer.h"
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
+#include "Code_InteractableObject.h"
 
 
 ACode_BasePlayer::ACode_BasePlayer() {
@@ -20,8 +21,6 @@ ACode_BasePlayer::ACode_BasePlayer() {
 
 	SpringArm->bUsePawnControlRotation = true;
 }
-
-
 
 
 void ACode_BasePlayer::BeginPlay()
@@ -41,6 +40,8 @@ void ACode_BasePlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	//Movement
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACode_BasePlayer::InputAxisMoveForward);
 	PlayerInputComponent->BindAxis("Strafe", this, &ACode_BasePlayer::InputAxisStrafe);
+
+	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ACode_BasePlayer::TryInteract);
 }
 
 void ACode_BasePlayer::InputAxisMoveForward(float AxisValue)
@@ -57,4 +58,17 @@ void ACode_BasePlayer::InputAxisStrafe(float AxisValue)
 	FRotator MakeRotation(0., BreakRotation.Yaw, 0.);
 	FVector WorldDirection = FRotationMatrix(MakeRotation).GetScaledAxis(EAxis::Y);
 	AddMovementInput(WorldDirection, AxisValue);
+}
+
+void ACode_BasePlayer::TryInteract()
+{
+	if (CurrentInteractable)
+	{
+		CurrentInteractable->Execute_Interact(CurrentInteractable);
+	}
+}
+
+void ACode_BasePlayer::SetInteractingObject(ACode_InteractableObject* InteractObject)
+{
+	CurrentInteractable = InteractObject;
 }
