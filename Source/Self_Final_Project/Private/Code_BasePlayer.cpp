@@ -10,7 +10,7 @@ ACode_BasePlayer::ACode_BasePlayer() {
 
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>("SpringArm");
 	SpringArm->SetupAttachment(GetMesh(), FName("head"));
-	SpringArm->SetRelativeLocation(FVector(0, 25, 0));
+	SpringArm->SetRelativeLocation(FVector(0, 25.0f, 0));
 	SpringArm->TargetArmLength = 0;
 	SpringArm->bEnableCameraRotationLag = true;
 	SpringArm->CameraRotationLagSpeed = 7.5f;
