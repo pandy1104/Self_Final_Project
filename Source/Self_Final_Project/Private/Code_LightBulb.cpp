@@ -5,6 +5,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/SpotLightComponent.h"
 
+
 // Sets default values
 ACode_LightBulb::ACode_LightBulb()
 {
@@ -24,30 +25,35 @@ ACode_LightBulb::ACode_LightBulb()
 	SpotLight->SetInnerConeAngle(40.f);
 	SpotLight->SetOuterConeAngle(100.f);
 	SpotLight->SetLightColor(FLinearColor::White);
-	SpotLight->SetVisibility(true);
+	SpotLight->SetVisibility(isOn);
 }
 
 // Called when the game starts or when spawned
 void ACode_LightBulb::BeginPlay()
 {
 	Super::BeginPlay();
-	
 }
 
 // Called every frame
 void ACode_LightBulb::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
+}
 
+bool ACode_LightBulb::GetLightStatus()
+{
+	return isOn;
 }
 
 void ACode_LightBulb::ToggleLight()
 {
 	if (isOn) {
 		SpotLight->SetVisibility(false);
+		BulbMesh->SetMaterial(0, OffMaterial);
 	}
 	else {
 		SpotLight->SetVisibility(true);
+		BulbMesh->SetMaterial(0, OnMaterial);
 	}
 	isOn = !isOn;
 }

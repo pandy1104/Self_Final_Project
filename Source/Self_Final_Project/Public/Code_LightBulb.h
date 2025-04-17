@@ -26,10 +26,19 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	class USpotLightComponent* SpotLight;
 
-	bool isOn;
+	UPROPERTY(EditAnywhere, Category = "Materials")
+	UMaterialInterface* OnMaterial;
+
+	UPROPERTY(EditAnywhere, Category = "Materials")
+	UMaterialInterface* OffMaterial;
+
+	bool isOn = false;
+
+	
+
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	bool GetLightStatus();
 	void ToggleLight();
 };
