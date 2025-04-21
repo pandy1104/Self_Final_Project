@@ -20,18 +20,28 @@ protected:
 	virtual void BeginPlay() override;
 
 	class ACode_InteractableObject* CurrentInteractable = nullptr;
+	class ACode_PickupAbleObject* CurrentPickupAble = nullptr;
 
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
 	class USpringArmComponent* SpringArm;
 	UPROPERTY(BlueprintReadOnly, VisibleAnywhere)
 	class UCameraComponent* Camera;
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	class UCode_InvetoryComponent* InventoryComponent;
 
 private:
 	void InputAxisMoveForward(float AxisValue);
 	void InputAxisStrafe(float AxisValue);
 	void TryInteract();
+	void TryPickUp();
+	void TryDrop();
+	void SlotItem1();
+	void SlotItem2();
+	void SlotItem3();
+	void SlotItem4();
 
 public:
 	void SetInteractingObject(ACode_InteractableObject* InteractObject);
+	void SetPickUpObject(ACode_PickupAbleObject* PickUpObject);
 };

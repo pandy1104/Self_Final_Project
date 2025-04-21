@@ -5,7 +5,8 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "Camera/CameraComponent.h"
 #include "Code_InteractableObject.h"
-
+#include "Code_InvetoryComponent.h"
+#include "Code_PickupAbleObject.h"
 
 ACode_BasePlayer::ACode_BasePlayer() {
 
@@ -20,6 +21,9 @@ ACode_BasePlayer::ACode_BasePlayer() {
 	Camera->SetupAttachment(SpringArm);
 
 	SpringArm->bUsePawnControlRotation = true;
+
+	InventoryComponent = CreateDefaultSubobject<UCode_InvetoryComponent>("InventoryComponent");
+
 }
 
 
@@ -41,7 +45,16 @@ void ACode_BasePlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAxis("MoveForward", this, &ACode_BasePlayer::InputAxisMoveForward);
 	PlayerInputComponent->BindAxis("Strafe", this, &ACode_BasePlayer::InputAxisStrafe);
 
+	//Keybind
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ACode_BasePlayer::TryInteract);
+	PlayerInputComponent->BindAction("PickUp", IE_Pressed, this, &ACode_BasePlayer::TryPickUp);
+	PlayerInputComponent->BindAction("Drop", IE_Pressed, this, &ACode_BasePlayer::TryDrop);
+
+	//ItemSlot
+	PlayerInputComponent->BindAction("Slot1", IE_Pressed, this, &ACode_BasePlayer::SlotItem1);
+	PlayerInputComponent->BindAction("Slot2", IE_Pressed, this, &ACode_BasePlayer::SlotItem2);
+	PlayerInputComponent->BindAction("Slot3", IE_Pressed, this, &ACode_BasePlayer::SlotItem3);
+	PlayerInputComponent->BindAction("Slot4", IE_Pressed, this, &ACode_BasePlayer::SlotItem4);
 }
 
 void ACode_BasePlayer::InputAxisMoveForward(float AxisValue)
@@ -68,7 +81,48 @@ void ACode_BasePlayer::TryInteract()
 	}
 }
 
+void ACode_BasePlayer::TryPickUp()
+{
+	if (CurrentPickupAble) {
+		InventoryComponent->PickUp(CurrentPickupAble);
+		CurrentPickupAble = nullptr;
+	}
+}
+
+void ACode_BasePlayer::TryDrop()
+{
+	InventoryComponent->Drop();
+}
+
+void ACode_BasePlayer::SlotItem1()
+{
+	InventoryComponent->SetActiveSlot(0);
+}
+
+void ACode_BasePlayer::SlotItem2()
+{
+	InventoryComponent->SetActiveSlot(1);
+}
+
+void ACode_BasePlayer::SlotItem3()
+{
+	InventoryComponent->SetActiveSlot(2);
+}
+
+void ACode_BasePlayer::SlotItem4()
+{
+	InventoryComponent->SetActiveSlot(3);
+}
+
+
 void ACode_BasePlayer::SetInteractingObject(ACode_InteractableObject* InteractObject)
 {
 	CurrentInteractable = InteractObject;
 }
+
+void ACode_BasePlayer::SetPickUpObject(ACode_PickupAbleObject* PickUpObject)
+{
+	CurrentPickupAble = PickUpObject;
+}
+
+
