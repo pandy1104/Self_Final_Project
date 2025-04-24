@@ -8,6 +8,7 @@
 #include "Code_InvetoryComponent.h"
 #include "Code_PickupAbleObject.h"
 
+
 ACode_BasePlayer::ACode_BasePlayer() {
 
 	SpringArm = CreateDefaultSubobject<USpringArmComponent>("SpringArm");
@@ -30,6 +31,15 @@ ACode_BasePlayer::ACode_BasePlayer() {
 void ACode_BasePlayer::BeginPlay()
 {
 	Super::BeginPlay();
+
+	if (HUDClass)
+	{
+		PlayerHUD = CreateWidget<UCode_PlayerHUD>(GetWorld(), HUDClass);
+		if (PlayerHUD)
+		{
+			PlayerHUD->AddToViewport();
+		}
+	}
 }
 
 
@@ -86,32 +96,39 @@ void ACode_BasePlayer::TryPickUp()
 	if (CurrentPickupAble) {
 		InventoryComponent->PickUp(CurrentPickupAble);
 		CurrentPickupAble = nullptr;
+		UpdateInventoryUI();
 	}
+
 }
 
 void ACode_BasePlayer::TryDrop()
 {
 	InventoryComponent->Drop();
+	UpdateInventoryUI();
 }
 
 void ACode_BasePlayer::SlotItem1()
 {
 	InventoryComponent->SetActiveSlot(0);
+	PlayerHUD->SetActiveSlot(0);
 }
 
 void ACode_BasePlayer::SlotItem2()
 {
 	InventoryComponent->SetActiveSlot(1);
+	PlayerHUD->SetActiveSlot(1);
 }
 
 void ACode_BasePlayer::SlotItem3()
 {
 	InventoryComponent->SetActiveSlot(2);
+	PlayerHUD->SetActiveSlot(2);
 }
 
 void ACode_BasePlayer::SlotItem4()
 {
 	InventoryComponent->SetActiveSlot(3);
+	PlayerHUD->SetActiveSlot(3);
 }
 
 
@@ -123,6 +140,15 @@ void ACode_BasePlayer::SetInteractingObject(ACode_InteractableObject* InteractOb
 void ACode_BasePlayer::SetPickUpObject(ACode_PickupAbleObject* PickUpObject)
 {
 	CurrentPickupAble = PickUpObject;
+}
+
+void ACode_BasePlayer::UpdateInventoryUI()
+{
+	for (int i = 0; i < InventoryComponent->GetSize(); ++i)
+	{
+		UTexture2D* Icon = InventoryComponent->GetItemIcon(i); 
+		PlayerHUD->SetSlotIcon(i, Icon);
+	}
 }
 
 

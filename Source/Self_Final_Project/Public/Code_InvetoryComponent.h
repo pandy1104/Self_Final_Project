@@ -40,5 +40,6 @@ public:
 	void SetActiveSlot(int Slot);
 	UFUNCTION()
 	ACode_PickupAbleObject* GetActiveItem();
-		
+	UTexture2D* GetItemIcon(int slot);
+	int GetSize();
 };

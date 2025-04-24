@@ -72,3 +72,16 @@ ACode_PickupAbleObject* UCode_InvetoryComponent::GetActiveItem()
 	}
 	return nullptr;	
 }
+
+UTexture2D* UCode_InvetoryComponent::GetItemIcon(int slot)
+{
+	if (Inventory.IsValidIndex(slot) && Inventory[slot]) {
+		return Inventory[slot]->Icon;
+	}
+	return nullptr;
+}
+
+int UCode_InvetoryComponent::GetSize()
+{
+	return InventorySize;
+}

@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "Code_BaseCharacter.h"
+#include "Code_PlayerHUD.h"
 #include "Code_BasePlayer.generated.h"
 
 /**
@@ -29,6 +30,9 @@ protected:
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	class UCode_InvetoryComponent* InventoryComponent;
+	UPROPERTY(EditAnywhere, Category = "UI")
+	TSubclassOf<UCode_PlayerHUD> HUDClass;
+	class UCode_PlayerHUD* PlayerHUD;
 
 private:
 	void InputAxisMoveForward(float AxisValue);
@@ -44,4 +48,5 @@ private:
 public:
 	void SetInteractingObject(ACode_InteractableObject* InteractObject);
 	void SetPickUpObject(ACode_PickupAbleObject* PickUpObject);
+	void UpdateInventoryUI();
 };
