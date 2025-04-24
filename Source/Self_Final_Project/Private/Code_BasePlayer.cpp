@@ -38,6 +38,7 @@ void ACode_BasePlayer::BeginPlay()
 		if (PlayerHUD)
 		{
 			PlayerHUD->AddToViewport();
+			UpdateInventoryUI();
 		}
 	}
 }

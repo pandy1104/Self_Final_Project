@@ -14,8 +14,8 @@ UCLASS()
 class SELF_FINAL_PROJECT_API UCode_PlayerHUD : public UUserWidget
 {
 	GENERATED_BODY()
-	
-	
+
+
 protected:
     UPROPERTY(meta = (BindWidget))
     class UScaleBox* ScaleBox1;
@@ -46,6 +46,7 @@ private:
     void ScaleActiveSlot(int ActiveIndex);
 
 public:
+    virtual void NativeConstruct() override;
     void SetActiveSlot(int ActiveIndex);
     void SetSlotIcon(int SlotIndex, UTexture2D* Icon);
 };

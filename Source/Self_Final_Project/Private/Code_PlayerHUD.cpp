@@ -11,15 +11,29 @@ void UCode_PlayerHUD::ScaleActiveSlot(int ActiveIndex)
 
     for (int i = 0; i < Slots.Num(); ++i)
     {
-        float scale = 1.0f;
+        float scale = 1.5f;
         if (i == ActiveIndex) {
-            scale = 1.25f;
+            scale = 3.0f;
         }
         if (Slots[i])
         {
             Slots[i]->SetRenderScale(FVector2D(scale, scale));
         }
     }
+}
+
+void UCode_PlayerHUD::NativeConstruct()
+{
+    Super::NativeConstruct();
+    TArray<UScaleBox*> Slots = { ScaleBox1, ScaleBox2, ScaleBox3, ScaleBox4 };
+    TArray<UImage*> SlotImages = { Icon1, Icon2, Icon3, Icon4 };
+    for (int i = 0; i < Slots.Num(); ++i)
+    {
+        float scale = 1.5f;
+        Slots[i]->SetRenderScale(FVector2D(scale, scale));
+        SlotImages[i]->SetVisibility(ESlateVisibility::Hidden);
+    }
+    
 }
 
 void UCode_PlayerHUD::SetActiveSlot(int ActiveIndex)
