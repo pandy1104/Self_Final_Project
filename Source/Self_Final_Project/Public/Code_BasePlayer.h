@@ -40,11 +40,12 @@ private:
 	void TryInteract();
 	void TryPickUp();
 	void TryDrop();
+	void TryUse();
 	void SlotItem1();
 	void SlotItem2();
 	void SlotItem3();
 	void SlotItem4();
-
+	
 public:
 	void SetInteractingObject(ACode_InteractableObject* InteractObject);
 	void SetPickUpObject(ACode_PickupAbleObject* PickUpObject);

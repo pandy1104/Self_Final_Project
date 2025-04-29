@@ -25,3 +25,7 @@ void ACode_PickupAbleObject::Tick(float DeltaTime)
 
 }
 
+void ACode_PickupAbleObject::Use_Implementation()
+{
+}
+

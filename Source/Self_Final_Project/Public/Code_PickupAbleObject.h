@@ -3,11 +3,12 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Code_pickupObjectInterface.h"
 #include "GameFramework/Actor.h"
 #include "Code_PickupAbleObject.generated.h"
 
 UCLASS()
-class SELF_FINAL_PROJECT_API ACode_PickupAbleObject : public AActor
+class SELF_FINAL_PROJECT_API ACode_PickupAbleObject : public AActor, public ICode_pickupObjectInterface
 {
 	GENERATED_BODY()
 	
@@ -28,5 +29,5 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
+	virtual void Use_Implementation() override;
 };

@@ -60,7 +60,7 @@ void ACode_BasePlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCom
 	PlayerInputComponent->BindAction("Interact", IE_Pressed, this, &ACode_BasePlayer::TryInteract);
 	PlayerInputComponent->BindAction("PickUp", IE_Pressed, this, &ACode_BasePlayer::TryPickUp);
 	PlayerInputComponent->BindAction("Drop", IE_Pressed, this, &ACode_BasePlayer::TryDrop);
-
+	PlayerInputComponent->BindAction("Use", IE_Pressed, this, &ACode_BasePlayer::TryUse);
 	//ItemSlot
 	PlayerInputComponent->BindAction("Slot1", IE_Pressed, this, &ACode_BasePlayer::SlotItem1);
 	PlayerInputComponent->BindAction("Slot2", IE_Pressed, this, &ACode_BasePlayer::SlotItem2);
@@ -94,10 +94,30 @@ void ACode_BasePlayer::TryInteract()
 
 void ACode_BasePlayer::TryPickUp()
 {
-	if (CurrentPickupAble) {
+	/*if (CurrentPickupAble) {
 		InventoryComponent->PickUp(CurrentPickupAble);
 		CurrentPickupAble = nullptr;
 		UpdateInventoryUI();
+	}*/
+
+	FVector Start = Camera->GetComponentLocation();
+	FVector ForwardVector = Camera->GetForwardVector();
+	FVector End = Start + (ForwardVector * 500.0f);
+
+	FHitResult HitResult;
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(this); //avoid self
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams);	
+	DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 2.0f, 0, 1.0f);
+
+	if (bHit)
+	{
+		if (ACode_PickupAbleObject* PickupActor = Cast<ACode_PickupAbleObject>(HitResult.GetActor()))
+		{
+			InventoryComponent->PickUp(PickupActor);
+			UpdateInventoryUI();
+		}
 	}
 
 }
@@ -106,6 +126,13 @@ void ACode_BasePlayer::TryDrop()
 {
 	InventoryComponent->Drop();
 	UpdateInventoryUI();
+}
+
+void ACode_BasePlayer::TryUse()
+{
+	if (InventoryComponent->GetActiveItem()) {
+		InventoryComponent->GetActiveItem()->Execute_Use(InventoryComponent->GetActiveItem());
+	}
 }
 
 void ACode_BasePlayer::SlotItem1()
