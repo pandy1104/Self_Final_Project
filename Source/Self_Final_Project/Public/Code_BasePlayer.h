@@ -34,6 +34,9 @@ protected:
 	TSubclassOf<UCode_PlayerHUD> HUDClass;
 	class UCode_PlayerHUD* PlayerHUD;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+	class USpotLightComponent* SpotLight;
+
 private:
 	void InputAxisMoveForward(float AxisValue);
 	void InputAxisStrafe(float AxisValue);
@@ -50,4 +53,5 @@ public:
 	void SetInteractingObject(ACode_InteractableObject* InteractObject);
 	void SetPickUpObject(ACode_PickupAbleObject* PickUpObject);
 	void UpdateInventoryUI();
+	void SetFlashLightStatus(bool isOn);
 };

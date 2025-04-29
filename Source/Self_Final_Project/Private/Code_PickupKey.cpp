@@ -14,13 +14,11 @@ ACode_PickupKey::ACode_PickupKey()
 	
 	KeyMesh = CreateDefaultSubobject<UStaticMeshComponent>("KeyMesh");
 	SetRootComponent(KeyMesh);
-
-	InteractCollision = CreateDefaultSubobject<USphereComponent>("Collision");
-	InteractCollision->SetCollisionEnabled(ECollisionEnabled::QueryOnly);
-	InteractCollision->SetCollisionObjectType(ECollisionChannel::ECC_WorldDynamic);
-	InteractCollision->SetCollisionResponseToAllChannels(ECR_Ignore);
-	InteractCollision->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
-	InteractCollision->SetupAttachment(KeyMesh);
+	KeyMesh->SetSimulatePhysics(true);
+	KeyMesh->SetEnableGravity(true);
+	KeyMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
+	KeyMesh->SetCollisionResponseToAllChannels(ECR_Block);
+	KeyMesh->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
 
 }
 
@@ -28,22 +26,5 @@ void ACode_PickupKey::BeginPlay()
 {
 	Super::BeginPlay();
 
-	InteractCollision->OnComponentBeginOverlap.AddDynamic(this, &ACode_PickupKey::OnPlayerEnter);
-	InteractCollision->OnComponentEndOverlap.AddDynamic(this, &ACode_PickupKey::OnPlayerExit);
 }
 
-void ACode_PickupKey::OnPlayerEnter(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)
-{
-	if (ACode_BasePlayer* Player = Cast<ACode_BasePlayer>(OtherActor))
-	{
-		Player->SetPickUpObject(this);
-	}
-}
-
-void ACode_PickupKey::OnPlayerExit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex)
-{
-	if (ACode_BasePlayer* Player = Cast<ACode_BasePlayer>(OtherActor))
-	{
-		Player->SetPickUpObject(nullptr);
-	}
-}

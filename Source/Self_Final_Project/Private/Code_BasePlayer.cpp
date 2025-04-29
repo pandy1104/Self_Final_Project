@@ -7,7 +7,7 @@
 #include "Code_InteractableObject.h"
 #include "Code_InvetoryComponent.h"
 #include "Code_PickupAbleObject.h"
-
+#include "Components/SpotLightComponent.h"
 
 ACode_BasePlayer::ACode_BasePlayer() {
 
@@ -25,6 +25,14 @@ ACode_BasePlayer::ACode_BasePlayer() {
 
 	InventoryComponent = CreateDefaultSubobject<UCode_InvetoryComponent>("InventoryComponent");
 
+	SpotLight = CreateDefaultSubobject<USpotLightComponent>("SpotLight");
+	SpotLight->SetupAttachment(Camera);
+	SpotLight->SetIntensity(10000.f);
+	SpotLight->SetAttenuationRadius(3000.f);
+	SpotLight->SetInnerConeAngle(10.f);
+	SpotLight->SetOuterConeAngle(20.f);
+	SpotLight->SetLightColor(FLinearColor::White);
+	SpotLight->SetVisibility(false);
 }
 
 
@@ -86,9 +94,28 @@ void ACode_BasePlayer::InputAxisStrafe(float AxisValue)
 
 void ACode_BasePlayer::TryInteract()
 {
-	if (CurrentInteractable)
+	/*if (CurrentInteractable)
 	{
 		CurrentInteractable->Execute_Interact(CurrentInteractable);
+	}*/
+
+	FVector Start = Camera->GetComponentLocation();
+	FVector ForwardVector = Camera->GetForwardVector();
+	FVector End = Start + (ForwardVector * 300.0f);
+
+	FHitResult HitResult;
+	FCollisionQueryParams QueryParams;
+	QueryParams.AddIgnoredActor(this); //avoid self
+
+	bool bHit = GetWorld()->LineTraceSingleByChannel(HitResult, Start, End, ECC_Visibility, QueryParams);
+	DrawDebugLine(GetWorld(), Start, End, FColor::Green, false, 2.0f, 0, 1.0f);
+
+	if (bHit)
+	{
+		if (ACode_InteractableObject* InteractActor = Cast<ACode_InteractableObject>(HitResult.GetActor()))
+		{
+			InteractActor->Execute_Interact(InteractActor);
+		}
 	}
 }
 
@@ -102,7 +129,7 @@ void ACode_BasePlayer::TryPickUp()
 
 	FVector Start = Camera->GetComponentLocation();
 	FVector ForwardVector = Camera->GetForwardVector();
-	FVector End = Start + (ForwardVector * 500.0f);
+	FVector End = Start + (ForwardVector * 200.0f);
 
 	FHitResult HitResult;
 	FCollisionQueryParams QueryParams;
@@ -177,6 +204,11 @@ void ACode_BasePlayer::UpdateInventoryUI()
 		UTexture2D* Icon = InventoryComponent->GetItemIcon(i); 
 		PlayerHUD->SetSlotIcon(i, Icon);
 	}
+}
+
+void ACode_BasePlayer::SetFlashLightStatus(bool isOn)
+{
+	SpotLight->SetVisibility(isOn);
 }
 
 

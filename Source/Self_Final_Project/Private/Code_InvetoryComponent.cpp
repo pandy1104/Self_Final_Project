@@ -51,10 +51,16 @@ void UCode_InvetoryComponent::Drop()
 {
 	if (Inventory.IsValidIndex(ActiveSlot) && Inventory[ActiveSlot]) {
 		ACode_PickupAbleObject* Item = Inventory[ActiveSlot];
+		UStaticMeshComponent* ObjectMesh = Cast<UStaticMeshComponent>(Item->GetRootComponent());
+		if (ObjectMesh) {
+			ObjectMesh->SetSimulatePhysics(true);
+			ObjectMesh->SetEnableGravity(true);
+		}
 		Item->DetachFromActor(FDetachmentTransformRules::KeepWorldTransform);
+		Item->SetOwner(nullptr);
 		Item->SetActorHiddenInGame(false);
 		Item->SetActorEnableCollision(true);
-		Item->SetActorLocation(GetOwner()->GetActorLocation() + GetOwner()->GetActorForwardVector() * 25.0f);
+		Item->SetActorLocation(GetOwner()->GetActorLocation() + GetOwner()->GetActorForwardVector() * 30.0f);
 		Inventory[ActiveSlot] = nullptr;
 	}
 }
@@ -78,13 +84,16 @@ void UCode_InvetoryComponent::SetActiveSlot(int Slot)
 			{
 				NewItem->SetActorHiddenInGame(false);
 				NewItem->SetActorEnableCollision(false);
-
+				UStaticMeshComponent* ObjectMesh = Cast<UStaticMeshComponent>(NewItem->GetRootComponent());
+				if (ObjectMesh) {
+					ObjectMesh->SetSimulatePhysics(false);
+					ObjectMesh->SetEnableGravity(false);
+				}
 				USkeletalMeshComponent* MeshComp = GetOwner()->FindComponentByClass<USkeletalMeshComponent>();
 				if (MeshComp)
 				{
-					NewItem->AttachToComponent(
-						MeshComp,
-						FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("HoldingSocket"));
+					NewItem->AttachToComponent(MeshComp, FAttachmentTransformRules::SnapToTargetNotIncludingScale, TEXT("HoldingSocket"));
+					NewItem->SetOwner(GetOwner());
 				}
 			}
 		}

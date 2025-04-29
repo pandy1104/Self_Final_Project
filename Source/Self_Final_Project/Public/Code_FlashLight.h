@@ -20,23 +20,12 @@ public:
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	UStaticMeshComponent* FlashLightMesh;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	class USpotLightComponent* SpotLight;
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
-	class USphereComponent* InteractCollision;
-
-	bool isOn = false;
+	bool isOn = true;
 
 public:
 	bool GetFlashLightStatus();
 	void ToggleLight();
 
 	virtual void BeginPlay() override;
-	UFUNCTION()
-	void OnPlayerEnter(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult);
-
-	UFUNCTION()
-	void OnPlayerExit(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex);
-
 	virtual void Use_Implementation() override;
 };
