@@ -26,6 +26,8 @@ ACode_LightSwitch::ACode_LightSwitch()
 	InteractCollision->SetCollisionResponseToAllChannels(ECR_Ignore);
 	InteractCollision->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	InteractCollision->SetupAttachment(SwitchFrame);
+
+	
 }
 
 void ACode_LightSwitch::BeginPlay()
@@ -37,6 +39,14 @@ void ACode_LightSwitch::BeginPlay()
 	OffRotation = SwitchMesh->GetRelativeRotation();
 	OnRotation = OffRotation + FRotator(-100.f, 0.f, 0.f);
 
+	if (ConnectedBulb) {
+		if (ConnectedBulb->GetLightStatus()) {
+			SwitchMesh->SetRelativeRotation(OnRotation);
+		}
+		else {
+			SwitchMesh->SetRelativeRotation(OffRotation);
+		}
+	}
 }
 
 void ACode_LightSwitch::OnPlayerEnter(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult)

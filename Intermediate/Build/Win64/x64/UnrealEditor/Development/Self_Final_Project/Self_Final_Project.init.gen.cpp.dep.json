@@ -1,0 +1,13 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\unrealeditor\\inc\\self_final_project\\uht\\self_final_project.init.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\x64\\self_final_projecteditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\self_final_project\\definitions.self_final_project.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

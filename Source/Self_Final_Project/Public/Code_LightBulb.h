@@ -32,6 +32,7 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Materials")
 	UMaterialInterface* OffMaterial;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	bool isOn = false;
 
 	

@@ -25,13 +25,21 @@ ACode_LightBulb::ACode_LightBulb()
 	SpotLight->SetInnerConeAngle(40.f);
 	SpotLight->SetOuterConeAngle(100.f);
 	SpotLight->SetLightColor(FLinearColor::White);
-	SpotLight->SetVisibility(isOn);
+	
 }
 
 // Called when the game starts or when spawned
 void ACode_LightBulb::BeginPlay()
 {
 	Super::BeginPlay();
+	if (isOn) {
+		SpotLight->SetVisibility(true);
+		BulbMesh->SetMaterial(0, OnMaterial);
+	}
+	else {
+		SpotLight->SetVisibility(false);
+		BulbMesh->SetMaterial(0, OffMaterial);
+	}
 }
 
 // Called every frame

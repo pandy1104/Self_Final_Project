@@ -1,0 +1,17 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\unrealeditor\\inc\\self_final_project\\uht\\code_pickupableobject.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\x64\\self_final_projecteditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\self_final_project\\definitions.self_final_project.h",
+            "c:\\programming\\selffinalproject\\self_final_project\\source\\self_final_project\\public\\code_pickupableobject.h",
+            "c:\\programming\\selffinalproject\\self_final_project\\source\\self_final_project\\public\\code_pickupobjectinterface.h",
+            "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\unrealeditor\\inc\\self_final_project\\uht\\code_pickupobjectinterface.generated.h",
+            "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\unrealeditor\\inc\\self_final_project\\uht\\code_pickupableobject.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}

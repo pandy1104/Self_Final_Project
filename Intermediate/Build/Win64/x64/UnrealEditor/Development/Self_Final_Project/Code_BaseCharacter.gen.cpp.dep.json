@@ -1,0 +1,23 @@
+{
+    "Version": "1.1",
+    "Data": {
+        "Source": "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\unrealeditor\\inc\\self_final_project\\uht\\code_basecharacter.gen.cpp",
+        "ProvidedModule": "",
+        "PCH": "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\x64\\self_final_projecteditor\\development\\engine\\sharedpch.engine.shadowerrors.inclorderunreal5_1.h.pch",
+        "Includes": [
+            "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\x64\\unrealeditor\\development\\self_final_project\\definitions.self_final_project.h",
+            "c:\\programming\\selffinalproject\\self_final_project\\source\\self_final_project\\public\\code_basecharacter.h",
+            "d:\\ue_5.2\\engine\\source\\runtime\\engine\\classes\\gameframework\\character.h",
+            "d:\\ue_5.2\\engine\\source\\runtime\\engine\\classes\\gameframework\\charactermovementreplication.h",
+            "d:\\ue_5.2\\engine\\source\\runtime\\experimental\\iris\\core\\public\\iris\\serialization\\irisobjectreferencepackagemap.h",
+            "d:\\ue_5.2\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\iriscore\\uht\\irisobjectreferencepackagemap.generated.h",
+            "d:\\ue_5.2\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\charactermovementreplication.generated.h",
+            "d:\\ue_5.2\\engine\\source\\runtime\\engine\\classes\\gameframework\\rootmotionsource.h",
+            "d:\\ue_5.2\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\rootmotionsource.generated.h",
+            "d:\\ue_5.2\\engine\\intermediate\\build\\win64\\unrealeditor\\inc\\engine\\uht\\character.generated.h",
+            "c:\\programming\\selffinalproject\\self_final_project\\intermediate\\build\\win64\\unrealeditor\\inc\\self_final_project\\uht\\code_basecharacter.generated.h"
+        ],
+        "ImportedModules": [],
+        "ImportedHeaderUnits": []
+    }
+}
