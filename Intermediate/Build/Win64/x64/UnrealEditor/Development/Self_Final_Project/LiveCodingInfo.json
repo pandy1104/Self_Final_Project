@@ -2,20 +2,6 @@
 	"RemapUnityFiles": 
 	{
 		"Module.Self_Final_Project.cpp.obj": [
-			"Code_BaseCharacter.cpp.obj",
-			"Code_BasePlayer.cpp.obj",
-			"Code_Door.cpp.obj",
-			"Code_FlashLight.cpp.obj",
-			"Code_GameModeBase.cpp.obj",
-			"Code_InteractableObject.cpp.obj",
-			"Code_Interactable_Interface.cpp.obj",
-			"Code_InvetoryComponent.cpp.obj",
-			"Code_PickupAbleObject.cpp.obj",
-			"Code_PickupKey.cpp.obj",
-			"Code_pickupObjectInterface.cpp.obj",
-			"Code_PlayerHUD.cpp.obj",
-			"Self_Final_Project.cpp.obj",
-			"Self_Final_ProjectGameModeBase.cpp.obj",
 			"Code_BaseCharacter.gen.cpp.obj",
 			"Code_BasePlayer.gen.cpp.obj",
 			"Code_Door.gen.cpp.obj",
@@ -32,8 +18,22 @@
 			"Code_PlayerHUD.gen.cpp.obj",
 			"Self_Final_Project.init.gen.cpp.obj",
 			"Self_Final_ProjectGameModeBase.gen.cpp.obj",
+			"Code_BaseCharacter.cpp.obj",
+			"Code_BasePlayer.cpp.obj",
+			"Code_Door.cpp.obj",
+			"Code_FlashLight.cpp.obj",
+			"Code_GameModeBase.cpp.obj",
+			"Code_InteractableObject.cpp.obj",
+			"Code_Interactable_Interface.cpp.obj",
+			"Code_InvetoryComponent.cpp.obj",
 			"Code_LightBulb.cpp.obj",
-			"Code_LightSwitch.cpp.obj"
+			"Code_LightSwitch.cpp.obj",
+			"Code_PickupAbleObject.cpp.obj",
+			"Code_PickupKey.cpp.obj",
+			"Code_pickupObjectInterface.cpp.obj",
+			"Code_PlayerHUD.cpp.obj",
+			"Self_Final_Project.cpp.obj",
+			"Self_Final_ProjectGameModeBase.cpp.obj"
 		]
 	}
 }

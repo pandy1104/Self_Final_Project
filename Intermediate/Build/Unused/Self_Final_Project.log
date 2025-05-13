@@ -10,19 +10,15 @@
   [Upgrade] Suppress this message by setting 'IncludeOrderVersion = EngineIncludeOrderVersion.Unreal5_2;' in Self_Final_ProjectEditor.Target.cs.
   [Upgrade] Alternatively you can set this to 'EngineIncludeOrderVersion.Latest' to always use the latest include order. This will potentially cause compile errors when integrating new versions of the engine.
   [Upgrade]
-  [Adaptive Build] Excluded from Self_Final_Project unity file: Code_LightBulb.cpp, Code_LightSwitch.cpp, Code_BaseCharacter.gen.cpp, Code_BasePlayer.gen.cpp, Code_Door.gen.cpp, Code_FlashLight.gen.cpp, Code_GameModeBase.gen.cpp, Code_InteractableObject.gen.cpp, Code_Interactable_Interface.gen.cpp, Code_InvetoryComponent.gen.cpp, Code_LightBulb.gen.cpp, Code_LightSwitch.gen.cpp, Code_PickupAbleObject.gen.cpp, Code_PickupKey.gen.cpp, Code_pickupObjectInterface.gen.cpp, Code_PlayerHUD.gen.cpp, Self_Final_Project.init.gen.cpp, Self_Final_ProjectGameModeBase.gen.cpp
   Determining max actions to execute in parallel (16 physical cores, 24 logical cores)
     Executing up to 16 processes, one per physical core
     Requested 1.5 GB free memory per action, 15.71 GB available: limiting max parallel actions to 10
-  Building 7 actions with 7 processes...
-  [1/7] Compile [x64] Code_LightBulb.gen.cpp
-  [2/7] Compile [x64] Self_Final_Project.init.gen.cpp
-  [3/7] Compile [x64] Code_LightBulb.cpp
-  [4/7] Compile [x64] Code_LightSwitch.cpp
-  [5/7] Link [x64] UnrealEditor-Self_Final_Project.lib
+  Building 4 actions with 4 processes...
+  [1/4] Compile [x64] Module.Self_Final_Project.cpp
+  [2/4] Link [x64] UnrealEditor-Self_Final_Project.lib
      Creating library C:\Programming\SelfFinalProject\Self_Final_Project\Intermediate\Build\Win64\x64\UnrealEditor\Development\Self_Final_Project\UnrealEditor-Self_Final_Project.lib and object C:\Programming\SelfFinalProject\Self_Final_Project\Intermediate\Build\Win64\x64\UnrealEditor\Development\Self_Final_Project\UnrealEditor-Self_Final_Project.exp
-  [6/7] Link [x64] UnrealEditor-Self_Final_Project.dll
+  [3/4] Link [x64] UnrealEditor-Self_Final_Project.dll
      Creating library C:\Programming\SelfFinalProject\Self_Final_Project\Intermediate\Build\Win64\x64\UnrealEditor\Development\Self_Final_Project\UnrealEditor-Self_Final_Project.suppressed.lib and object C:\Programming\SelfFinalProject\Self_Final_Project\Intermediate\Build\Win64\x64\UnrealEditor\Development\Self_Final_Project\UnrealEditor-Self_Final_Project.suppressed.exp
-  [7/7] WriteMetadata Self_Final_ProjectEditor.target
-  Total time in Parallel executor: 2.41 seconds
-  Total execution time: 2.90 seconds
+  [4/4] WriteMetadata Self_Final_ProjectEditor.target
+  Total time in Parallel executor: 5.96 seconds
+  Total execution time: 6.65 seconds

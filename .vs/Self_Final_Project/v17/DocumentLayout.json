@@ -3,24 +3,16 @@
   "WorkspaceRootPath": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_LightBulb.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|solutionrelative:Source\\Self_Final_Project\\Private\\Code_LightBulb.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightBulb.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|solutionrelative:Source\\Self_Final_Project\\Public\\Code_LightBulb.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_LightSwitch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|solutionrelative:Source\\Self_Final_Project\\Private\\Code_LightSwitch.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightSwitch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|solutionrelative:Source\\Self_Final_Project\\Public\\Code_LightSwitch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_Door.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|solutionrelative:Source\\Self_Final_Project\\Private\\Code_Door.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_BasePlayer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|solutionrelative:Source\\Self_Final_Project\\Public\\Code_BasePlayer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+      "AbsoluteMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightSwitch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{BEF6564E-576E-377A-B763-F2A6878B8E46}|Intermediate\\ProjectFiles\\Self_Final_Project.vcxproj|solutionrelative:Source\\Self_Final_Project\\Public\\Code_LightSwitch.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -43,64 +35,40 @@
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "Code_LightBulb.h",
-              "DocumentMoniker": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightBulb.h",
-              "RelativeDocumentMoniker": "Source\\Self_Final_Project\\Public\\Code_LightBulb.h",
-              "ToolTip": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightBulb.h",
-              "RelativeToolTip": "Source\\Self_Final_Project\\Public\\Code_LightBulb.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAgAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-09T22:46:42.108Z",
+              "Title": "Code_Door.cpp",
+              "DocumentMoniker": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_Door.cpp",
+              "RelativeDocumentMoniker": "Source\\Self_Final_Project\\Private\\Code_Door.cpp",
+              "ToolTip": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_Door.cpp",
+              "RelativeToolTip": "Source\\Self_Final_Project\\Private\\Code_Door.cpp",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2025-05-13T21:51:24.613Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "Code_LightBulb.cpp",
-              "DocumentMoniker": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_LightBulb.cpp",
-              "RelativeDocumentMoniker": "Source\\Self_Final_Project\\Private\\Code_LightBulb.cpp",
-              "ToolTip": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_LightBulb.cpp",
-              "RelativeToolTip": "Source\\Self_Final_Project\\Private\\Code_LightBulb.cpp",
-              "ViewState": "AQIAAA8AAAAAAAAAAAAAACoAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-09T22:46:38.436Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Code_BasePlayer.h",
-              "DocumentMoniker": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_BasePlayer.h",
-              "RelativeDocumentMoniker": "Source\\Self_Final_Project\\Public\\Code_BasePlayer.h",
-              "ToolTip": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_BasePlayer.h",
-              "RelativeToolTip": "Source\\Self_Final_Project\\Public\\Code_BasePlayer.h",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAADQAAAAaAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-09T22:42:30.65Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Code_LightSwitch.h",
-              "DocumentMoniker": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightSwitch.h",
-              "RelativeDocumentMoniker": "Source\\Self_Final_Project\\Public\\Code_LightSwitch.h",
-              "ToolTip": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightSwitch.h",
-              "RelativeToolTip": "Source\\Self_Final_Project\\Public\\Code_LightSwitch.h",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAiAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-05-09T22:42:21.624Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
               "Title": "Code_LightSwitch.cpp",
               "DocumentMoniker": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_LightSwitch.cpp",
               "RelativeDocumentMoniker": "Source\\Self_Final_Project\\Private\\Code_LightSwitch.cpp",
               "ToolTip": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Private\\Code_LightSwitch.cpp",
               "RelativeToolTip": "Source\\Self_Final_Project\\Private\\Code_LightSwitch.cpp",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAAC4AAAAuAAAA",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAABkAAABCAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-05-09T22:41:43.376Z",
+              "WhenOpened": "2025-05-13T21:40:00.249Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Code_LightSwitch.h",
+              "DocumentMoniker": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightSwitch.h",
+              "RelativeDocumentMoniker": "Source\\Self_Final_Project\\Public\\Code_LightSwitch.h",
+              "ToolTip": "C:\\Programming\\SelfFinalProject\\Self_Final_Project\\Source\\Self_Final_Project\\Public\\Code_LightSwitch.h",
+              "RelativeToolTip": "Source\\Self_Final_Project\\Public\\Code_LightSwitch.h",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB8AAAAxAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
+              "WhenOpened": "2025-05-13T21:39:20.575Z",
               "EditorCaption": ""
             }
           ]
