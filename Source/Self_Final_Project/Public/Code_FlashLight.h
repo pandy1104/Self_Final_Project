@@ -22,6 +22,12 @@ protected:
 	UStaticMeshComponent* FlashLightMesh;
 	bool isOn = true;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USoundBase* SfxSound;
+
+	UPROPERTY()
+	UAudioComponent* AudioComponent;
+
 public:
 	bool GetFlashLightStatus();
 	void ToggleLight();

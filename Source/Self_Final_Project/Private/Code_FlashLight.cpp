@@ -5,6 +5,7 @@
 #include "Components/StaticMeshComponent.h"
 #include "Components/SphereComponent.h"
 #include "Code_BasePlayer.h"
+#include "Components/AudioComponent.h"
 
 ACode_FlashLight::ACode_FlashLight()
 {
@@ -18,6 +19,9 @@ ACode_FlashLight::ACode_FlashLight()
 	FlashLightMesh->SetCollisionEnabled(ECollisionEnabled::QueryAndPhysics);
 	FlashLightMesh->SetCollisionResponseToAllChannels(ECR_Block);
 	FlashLightMesh->SetCollisionResponseToChannel(ECC_Pawn, ECR_Ignore);
+
+	AudioComponent = CreateDefaultSubobject<UAudioComponent>("AudioComponent");
+	AudioComponent->SetupAttachment(FlashLightMesh);
 }
 
 bool ACode_FlashLight::GetFlashLightStatus()
@@ -43,5 +47,9 @@ void ACode_FlashLight::BeginPlay()
 
 void ACode_FlashLight::Use_Implementation()
 {
+	if (SfxSound && AudioComponent) {
+		AudioComponent->SetSound(SfxSound);
+		AudioComponent->Play();
+	}
 	ToggleLight();
 }

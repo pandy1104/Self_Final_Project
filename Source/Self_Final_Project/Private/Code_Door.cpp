@@ -7,6 +7,7 @@
 #include "Curves/CurveFloat.h"
 #include "Components/BoxComponent.h"
 #include "Code_BasePlayer.h"
+#include "Components/AudioComponent.h"
 
 // Sets default values
 ACode_Door::ACode_Door()
@@ -35,6 +36,8 @@ ACode_Door::ACode_Door()
 	InteractCollision->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	InteractCollision->SetupAttachment(DoorFrameMesh);
 
+	AudioComponent = CreateDefaultSubobject<UAudioComponent>("AudioComponent");
+	AudioComponent->SetupAttachment(DoorFrameMesh);
 }
 
 // Called when the game starts or when spawned
@@ -102,6 +105,10 @@ void ACode_Door::ToggleDoor()
 
 void ACode_Door::Interact_Implementation()
 {
+	if (SfxSound && AudioComponent) {
+		AudioComponent->SetSound(SfxSound);
+		AudioComponent->Play();
+	}
 	ToggleDoor();
 }
 

@@ -43,6 +43,13 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "Door|Timeline")
 	UCurveFloat* DoorCurve;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USoundBase* SfxSound;
+
+	UPROPERTY()
+	UAudioComponent* AudioComponent;
+
+
 	UFUNCTION()
 	void HandleTimelineProgress(float Value);
 
