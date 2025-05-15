@@ -8,6 +8,7 @@
 #include "Code_BasePlayer.h"
 #include "Components/TimelineComponent.h"
 #include "Curves/CurveFloat.h"
+#include "Components/AudioComponent.h"
 
 ACode_LightSwitch::ACode_LightSwitch()
 {
@@ -27,7 +28,8 @@ ACode_LightSwitch::ACode_LightSwitch()
 	InteractCollision->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 	InteractCollision->SetupAttachment(SwitchFrame);
 
-	
+	AudioComponent = CreateDefaultSubobject<UAudioComponent>("AudioComponent");
+	AudioComponent->SetupAttachment(SwitchFrame);
 }
 
 void ACode_LightSwitch::BeginPlay()
@@ -67,7 +69,6 @@ void ACode_LightSwitch::OnPlayerExit(UPrimitiveComponent* OverlappedComp, AActor
 
 void ACode_LightSwitch::Interact_Implementation()
 {
-	
 	if (ConnectedBulb) {
 		if (ConnectedBulb->GetLightStatus()) {
 			SwitchMesh->SetRelativeRotation(OffRotation);
@@ -75,6 +76,13 @@ void ACode_LightSwitch::Interact_Implementation()
 		else {
 			SwitchMesh->SetRelativeRotation(OnRotation);
 		}
-		ConnectedBulb->ToggleLight();
+		if (SfxSound && AudioComponent) {
+			AudioComponent->SetSound(SfxSound);
+			AudioComponent->Play();
+		}
+		ConnectedBulb->ToggleLight(); 
+		
+
 	}
+	
 }
