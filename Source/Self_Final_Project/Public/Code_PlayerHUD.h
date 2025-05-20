@@ -41,12 +41,16 @@ protected:
     UPROPERTY(meta = (BindWidget))
     class UImage* Icon4;
 
+    UPROPERTY(meta = (BindWidget))
+    class UEditableText* ItemName;
 
+    FTimerHandle HideTextTimerHandle;
 private:
     void ScaleActiveSlot(int ActiveIndex);
-
+    void HideText();
 public:
     virtual void NativeConstruct() override;
     void SetActiveSlot(int ActiveIndex);
     void SetSlotIcon(int SlotIndex, UTexture2D* Icon);
+    void SetItemName(FText Name);
 };

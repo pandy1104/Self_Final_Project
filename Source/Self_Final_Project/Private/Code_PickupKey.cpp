@@ -25,6 +25,7 @@ ACode_PickupKey::ACode_PickupKey()
 void ACode_PickupKey::BeginPlay()
 {
 	Super::BeginPlay();
-
+		FString FinalName = Name.ToString() + " - " + KeyName.ToString();
+		Name = FName(*FinalName);
 }
 

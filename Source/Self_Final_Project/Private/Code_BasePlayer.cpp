@@ -166,24 +166,28 @@ void ACode_BasePlayer::SlotItem1()
 {
 	InventoryComponent->SetActiveSlot(0);
 	PlayerHUD->SetActiveSlot(0);
+	UpdateInventoryUI();
 }
 
 void ACode_BasePlayer::SlotItem2()
 {
 	InventoryComponent->SetActiveSlot(1);
 	PlayerHUD->SetActiveSlot(1);
+	UpdateInventoryUI();
 }
 
 void ACode_BasePlayer::SlotItem3()
 {
 	InventoryComponent->SetActiveSlot(2);
 	PlayerHUD->SetActiveSlot(2);
+	UpdateInventoryUI();
 }
 
 void ACode_BasePlayer::SlotItem4()
 {
 	InventoryComponent->SetActiveSlot(3);
 	PlayerHUD->SetActiveSlot(3);
+	UpdateInventoryUI();
 }
 
 
@@ -203,6 +207,10 @@ void ACode_BasePlayer::UpdateInventoryUI()
 	{
 		UTexture2D* Icon = InventoryComponent->GetItemIcon(i); 
 		PlayerHUD->SetSlotIcon(i, Icon);
+	}
+	if (InventoryComponent->GetActiveItem()) {
+		PlayerHUD->SetActiveSlot(InventoryComponent->GetActiveSlot());
+		PlayerHUD->SetItemName(FText::FromName(InventoryComponent->GetActiveItem()->Name));
 	}
 }
 

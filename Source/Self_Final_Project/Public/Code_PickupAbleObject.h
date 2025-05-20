@@ -16,7 +16,7 @@ public:
 	// Sets default values for this actor's properties
 	ACode_PickupAbleObject();
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	FString Name;
+	FName Name;
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	UTexture2D* Icon;
 

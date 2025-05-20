@@ -4,6 +4,7 @@
 #include "Code_PlayerHUD.h"
 #include "Components/ScaleBox.h"
 #include "Components/Image.h"
+#include "Components/EditableText.h"
 
 void UCode_PlayerHUD::ScaleActiveSlot(int ActiveIndex)
 {
@@ -22,6 +23,11 @@ void UCode_PlayerHUD::ScaleActiveSlot(int ActiveIndex)
     }
 }
 
+void UCode_PlayerHUD::HideText()
+{
+    ItemName->SetVisibility(ESlateVisibility::Hidden);
+}
+
 void UCode_PlayerHUD::NativeConstruct()
 {
     Super::NativeConstruct();
@@ -33,7 +39,6 @@ void UCode_PlayerHUD::NativeConstruct()
         Slots[i]->SetRenderScale(FVector2D(scale, scale));
         SlotImages[i]->SetVisibility(ESlateVisibility::Hidden);
     }
-    
 }
 
 void UCode_PlayerHUD::SetActiveSlot(int ActiveIndex)
@@ -58,4 +63,11 @@ void UCode_PlayerHUD::SetSlotIcon(int SlotIndex, UTexture2D* Icon)
     {
         SlotImages[SlotIndex]->SetVisibility(ESlateVisibility::Hidden);
     }
+}
+
+void UCode_PlayerHUD::SetItemName(FText Name)
+{
+    ItemName->SetVisibility(ESlateVisibility::Visible);
+    ItemName->SetText(Name);
+    GetWorld()->GetTimerManager().SetTimer(HideTextTimerHandle, this, &UCode_PlayerHUD::HideText, 1.0f, false);
 }

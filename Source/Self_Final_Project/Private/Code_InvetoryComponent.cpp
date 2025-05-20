@@ -40,8 +40,8 @@ void UCode_InvetoryComponent::PickUp(ACode_PickupAbleObject* Item)
 	{
 		if (!Inventory[i]) {
 			Inventory[i] = Item;
-			Item->SetActorHiddenInGame(true);
 			Item->SetActorEnableCollision(false);
+			SetActiveSlot(i);
 			return;
 		}
 	}
@@ -107,6 +107,17 @@ ACode_PickupAbleObject* UCode_InvetoryComponent::GetActiveItem()
 		return Inventory[ActiveSlot];
 	}
 	return nullptr;	
+}
+
+int UCode_InvetoryComponent::GetActiveSlot()
+{
+	if (GetActiveItem()) {
+		return Inventory.Find(GetActiveItem());
+	}
+	else {
+		return 0;
+	}
+
 }
 
 UTexture2D* UCode_InvetoryComponent::GetItemIcon(int slot)
