@@ -49,6 +49,13 @@ protected:
 	UPROPERTY()
 	UAudioComponent* AudioComponent;
 
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool bIsLocked = false;
+
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FName RequiredKeyName;
 
 	UFUNCTION()
 	void HandleTimelineProgress(float Value);

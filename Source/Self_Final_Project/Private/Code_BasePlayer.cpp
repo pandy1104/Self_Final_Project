@@ -211,4 +211,9 @@ void ACode_BasePlayer::SetFlashLightStatus(bool isOn)
 	SpotLight->SetVisibility(isOn);
 }
 
+UCode_InvetoryComponent* ACode_BasePlayer::GetInventory()
+{
+	return InventoryComponent;
+}
+
 

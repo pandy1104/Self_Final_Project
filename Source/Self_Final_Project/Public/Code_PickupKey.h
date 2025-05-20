@@ -21,7 +21,10 @@ protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	UStaticMeshComponent* KeyMesh;
 
+
 public:
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	FName KeyName;
 	virtual void BeginPlay() override;
 };

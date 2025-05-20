@@ -54,4 +54,5 @@ public:
 	void SetPickUpObject(ACode_PickupAbleObject* PickUpObject);
 	void UpdateInventoryUI();
 	void SetFlashLightStatus(bool isOn);
+	UCode_InvetoryComponent* GetInventory();
 };

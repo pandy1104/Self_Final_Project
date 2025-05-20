@@ -8,6 +8,9 @@
 #include "Components/BoxComponent.h"
 #include "Code_BasePlayer.h"
 #include "Components/AudioComponent.h"
+#include <Kismet/GameplayStatics.h>
+#include <Code_PickupKey.h>
+#include "Code_InvetoryComponent.h"
 
 // Sets default values
 ACode_Door::ACode_Door()
@@ -105,6 +108,32 @@ void ACode_Door::ToggleDoor()
 
 void ACode_Door::Interact_Implementation()
 {
+	if (bIsLocked)
+	{
+		if (ACode_BasePlayer* Player = Cast<ACode_BasePlayer>(UGameplayStatics::GetPlayerPawn(this, 0)))
+		{
+			ACode_PickupAbleObject* ActiveItem = Player->GetInventory()->GetActiveItem();
+			if (ACode_PickupKey* Key = Cast<ACode_PickupKey>(ActiveItem))
+			{
+				if (Key->KeyName == RequiredKeyName)
+				{
+					bIsLocked = false;
+					Player->GetInventory()->Drop();
+					Key->Destroy(); 
+					Player->UpdateInventoryUI();
+				}
+				else
+				{
+					return;
+				}
+			}
+			else
+			{
+				return;
+			}
+		}
+	}
+
 	if (SfxSound && AudioComponent) {
 		AudioComponent->SetSound(SfxSound);
 		AudioComponent->Play();
