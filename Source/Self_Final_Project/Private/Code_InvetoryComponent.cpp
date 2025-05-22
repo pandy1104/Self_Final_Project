@@ -132,3 +132,8 @@ int UCode_InvetoryComponent::GetSize()
 {
 	return InventorySize;
 }
+
+TArray<ACode_PickupAbleObject*> UCode_InvetoryComponent::GetInventory()
+{
+	return Inventory;
+}

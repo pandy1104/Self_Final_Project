@@ -43,4 +43,5 @@ public:
 	int GetActiveSlot();
 	UTexture2D* GetItemIcon(int slot);
 	int GetSize();
+	TArray<ACode_PickupAbleObject*> GetInventory();
 };

@@ -8,6 +8,7 @@
 #include "Code_InvetoryComponent.h"
 #include "Code_PickupAbleObject.h"
 #include "Components/SpotLightComponent.h"
+#include "Code_FlashLight.h"
 
 ACode_BasePlayer::ACode_BasePlayer() {
 
@@ -49,6 +50,7 @@ void ACode_BasePlayer::BeginPlay()
 			UpdateInventoryUI();
 		}
 	}
+	OnFlashLightSwitched.AddDynamic(this, &ACode_BasePlayer::DeActivedFlashLight);
 }
 
 
@@ -151,6 +153,14 @@ void ACode_BasePlayer::TryPickUp()
 
 void ACode_BasePlayer::TryDrop()
 {
+	for (size_t i = 0; i < InventoryComponent->GetSize(); i++)
+	{
+		if (ACode_FlashLight* Item = Cast<ACode_FlashLight>(InventoryComponent->GetInventory()[i])) {
+			Item->SetFLashLightStatus(false);
+			break;
+		}
+
+	}
 	InventoryComponent->Drop();
 	UpdateInventoryUI();
 }
@@ -212,6 +222,7 @@ void ACode_BasePlayer::UpdateInventoryUI()
 		PlayerHUD->SetActiveSlot(InventoryComponent->GetActiveSlot());
 		PlayerHUD->SetItemName(FText::FromName(InventoryComponent->GetActiveItem()->Name));
 	}
+	OnFlashLightSwitched.Broadcast();
 }
 
 void ACode_BasePlayer::SetFlashLightStatus(bool isOn)
@@ -222,6 +233,24 @@ void ACode_BasePlayer::SetFlashLightStatus(bool isOn)
 UCode_InvetoryComponent* ACode_BasePlayer::GetInventory()
 {
 	return InventoryComponent;
+}
+
+void ACode_BasePlayer::DeActivedFlashLight()
+{
+	ACode_FlashLight* FL = Cast<ACode_FlashLight>(InventoryComponent->GetActiveItem());
+	
+	if (!FL) {
+		for (size_t i = 0; i < InventoryComponent->GetSize(); i++)
+		{
+			if (ACode_FlashLight* Item = Cast<ACode_FlashLight>(InventoryComponent->GetInventory()[i])) {
+				Item->SetFLashLightStatus(false);
+				break;
+			}
+
+		}
+		SpotLight->SetVisibility(false);
+	}
+	
 }
 
 

@@ -20,7 +20,7 @@ public:
 protected:
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	UStaticMeshComponent* FlashLightMesh;
-	bool isOn = true;
+	bool isOn = false;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	USoundBase* SfxSound;
@@ -30,6 +30,7 @@ protected:
 
 public:
 	bool GetFlashLightStatus();
+	void SetFLashLightStatus(bool Status);
 	void ToggleLight();
 
 	virtual void BeginPlay() override;

@@ -10,6 +10,8 @@
 /**
  * 
  */
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnFlashLightOff);
+
 UCLASS()
 class SELF_FINAL_PROJECT_API ACode_BasePlayer : public ACode_BaseCharacter
 {
@@ -55,4 +57,8 @@ public:
 	void UpdateInventoryUI();
 	void SetFlashLightStatus(bool isOn);
 	UCode_InvetoryComponent* GetInventory();
+	UFUNCTION()
+	void DeActivedFlashLight();
+	UPROPERTY()
+	FOnFlashLightOff OnFlashLightSwitched;
 };

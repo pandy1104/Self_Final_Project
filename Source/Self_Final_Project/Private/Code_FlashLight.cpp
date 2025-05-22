@@ -29,12 +29,18 @@ bool ACode_FlashLight::GetFlashLightStatus()
 	return isOn;
 }
 
+void ACode_FlashLight::SetFLashLightStatus(bool Status)
+{
+	isOn = Status;
+}
+
 void ACode_FlashLight::ToggleLight()
 {
 	ACode_BasePlayer* Player = Cast<ACode_BasePlayer>(GetOwner());
 	if (Player) {
-		Player->SetFlashLightStatus(isOn);
 		isOn = !isOn;
+		Player->SetFlashLightStatus(isOn);
+		
 	}
 	
 }
