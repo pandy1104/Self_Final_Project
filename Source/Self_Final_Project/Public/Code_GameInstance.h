@@ -16,6 +16,7 @@ class SELF_FINAL_PROJECT_API UCode_GameInstance : public UGameInstance
 	
 
 public:
+
 	UFUNCTION()
 	void LoadFirstLevel();
 	UFUNCTION()
@@ -25,7 +26,8 @@ public:
 	UFUNCTION()
 	void LoadMainMenu();
 protected:
-	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
 	int LevelIndex;
 
 	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
@@ -33,6 +35,9 @@ protected:
 
 	UPROPERTY(EditDefaultsOnly, BlueprintReadWrite)
 	int CurrLevelIndex;
+
+
+
 private:
 	void LoadLevelSafe(int FirstLevelIndex);
 };

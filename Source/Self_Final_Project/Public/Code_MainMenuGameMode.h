@@ -14,4 +14,10 @@ class SELF_FINAL_PROJECT_API ACode_MainMenuGameMode : public AGameModeBase
 {
 	GENERATED_BODY()
 	
+public:
+	virtual void BeginPlay() override;
+
+protected:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USoundBase* BackgroundMusic;
 };

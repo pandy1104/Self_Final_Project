@@ -3,6 +3,7 @@
 
 #include "Code_GameInstance.h"
 
+
 void UCode_GameInstance::LoadFirstLevel()
 {
 	LoadLevelSafe(LevelIndex); 
