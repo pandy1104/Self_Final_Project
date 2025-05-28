@@ -27,6 +27,12 @@ protected:
 	UPROPERTY(EditAnywhere, Category = "UI")
 	TSubclassOf<UCode_ReadNoteWidget> UIClass;
 	class UCode_ReadNoteWidget* NoteUI;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	USoundBase* SfxSound;
+
+	UPROPERTY()
+	UAudioComponent* AudioComponent;
 public:
 	virtual void Use_Implementation() override;
 

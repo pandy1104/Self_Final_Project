@@ -19,6 +19,9 @@ protected:
 	class UImage* Note;
 	UPROPERTY(meta = (BindWidget))
 	class UButton* CloseButton;
+	UPROPERTY(BlueprintReadOnly, meta = (BindWidgetAnim), Transient)
+	UWidgetAnimation* WarpIn;
+
 	
 public:
 	virtual void NativeConstruct() override;

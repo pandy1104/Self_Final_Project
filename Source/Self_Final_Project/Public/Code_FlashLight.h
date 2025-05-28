@@ -29,6 +29,7 @@ protected:
 	UAudioComponent* AudioComponent;
 
 public:
+	
 	bool GetFlashLightStatus();
 	void SetFLashLightStatus(bool Status);
 	void ToggleLight();

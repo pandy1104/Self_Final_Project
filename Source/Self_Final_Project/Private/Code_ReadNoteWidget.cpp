@@ -4,10 +4,15 @@
 #include "Code_ReadNoteWidget.h"
 #include "Components/Image.h"
 #include "Components/Button.h"
+#include "Animation/WidgetAnimation.h"
 
 void UCode_ReadNoteWidget::NativeConstruct()
 {
     CloseButton->OnClicked.AddDynamic(this, &UCode_ReadNoteWidget::OnClose);
+
+    if (WarpIn) {
+        PlayAnimation(WarpIn);
+    }
 }
 
 void UCode_ReadNoteWidget::OnClose()
